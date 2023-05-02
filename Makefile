@@ -1,7 +1,7 @@
 TMPDIR=/var/tmp
 CONTAINER_NAME=go-ipfs_ipfs_1
 
-default: start stats status doc
+default: start stats status
 
 all: start enable-cors status stats log
 	
@@ -10,6 +10,10 @@ init:
 
 start:
 	docker-compose up -d || echo "maybe you should run make go-ipfs.custom first ?"
+
+doc:
+	@clear
+	@egrep -A 1 '^[a-zA-Z]*:' Makefile | egrep -v '\-\-' | tr  -d ':' 
 
 stats.dht:
 	docker exec -it $(CONTAINER_NAME) ipfs stats dht
@@ -46,6 +50,3 @@ stop:
 log:
 	docker logs -f $(CONTAINER_NAME)
 
-doc:
-	@clear
-	@egrep -A 1 '^[a-zA-Z]*:' Makefile | egrep -v '\-\-' | tr  -d ':' 

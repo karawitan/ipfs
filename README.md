@@ -11,10 +11,15 @@ make go-ipfs.custom
 
 make start
 
-4. Check logs
+4. Create the following alias and put it in your ~/.profile
+
+alias ipfs='docker exec go-ipfs_ipfs_1 ipfs'
+
+5. Check logs
 
 make log
 
 To get the status of your local IPFS node;
 
 http://127.0.0.1:5002/webui
+
