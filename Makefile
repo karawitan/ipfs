@@ -4,13 +4,12 @@ CONTAINER_NAME=go-ipfs_ipfs_1
 default: start stats status doc
 
 all: start enable-cors status stats log
-
 	
 init:
 	docker run -it go-ipfs:custom init
 
 start:
-	docker-compose up -d
+	docker-compose up -d || echo "maybe you should run make go-ipfs.custom first ?"
 
 stats.dht:
 	docker exec -it $(CONTAINER_NAME) ipfs stats dht
