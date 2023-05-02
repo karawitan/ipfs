@@ -2,8 +2,8 @@ version: '2.4'
 
 services:
   ipfs:
-    #command: config profile apply announce-public
-    image: go-ipfs:latest
+    command: config profile apply announce-public
+    image: go-ipfs:custom
     container_name: go-ipfs_ipfs_1
     volumes:
       - /var/tmp/go-ipfs/config:/home/ipfs/.ipfs/config
