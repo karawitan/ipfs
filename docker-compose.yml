@@ -1,0 +1,14 @@
+version: '2.4'
+
+services:
+  ipfs:
+    #command: config profile apply announce-public
+    image: go-ipfs:latest
+    container_name: go-ipfs_ipfs_1
+    volumes:
+      - /var/tmp/go-ipfs/config:/home/ipfs/.ipfs/config
+      - /Users/kalou/Downloads:/tmp/downloads
+    ports:
+      - 5002:5001
+      - 5102:5101
+      - 4002:4001
